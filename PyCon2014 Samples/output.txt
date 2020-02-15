@@ -1,0 +1,9 @@
+done:  {<Future at 0x21de080 state=finished returned NoneType>}
+not done: {<Future at 0x2c12a20 state=running>, <Future at 0x2c1d2e8 state=running>}
+
+done:  {<Future at 0x21de080 state=finished returned NoneType>, <Future at 0x2c12a20 state=finished returned NoneType>}
+not done: {<Future at 0x2c1d2e8 state=running>}
+
+done:  {<Future at 0x21de080 state=finished returned NoneType>, <Future at 0x2c12a20 state=finished returned NoneType>, <Future at 0x2c1d2e8 state=finished returned NoneType>}
+not done: set()
+

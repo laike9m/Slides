@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>reveal.js - The HTML Presentation Framework</title>
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css" id="theme">
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  </script>
+  <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section data-markdown>
+        <script type="text/template">
+          # FBT 客户端内幕
+            ## Node.js 和 node-webkit
+
+            <br><br>
+            by laike9m
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ### 客户端程序的最大需求：跨平台
+
+            1. 能在不同平台运行
+
+            2. 不同平台的界面看起来不能差太多
+          </script>
+        <aside class="notes">
+          Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+        </aside>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## 有哪些选择
+            跨平台的 GUI 库：Qt, GTK, tcl...
+            都需要重新开始学习GUI框架
+
+            有没有办法不学新东西就能写出桌面客户端程序呢？
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          # HTML
+            ### +
+            # BROSWER
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          # Node-Webkit !!
+            [https://github.com/rogerwang/node-webkit](https://github.com/rogerwang/node-webkit)
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          # Node-Webkit Features
+            * Apps written in modern HTML5, CSS3, JS and WebGL.
+            * Complete support for Node.js APIs and all its third party modules.
+            * Good performance: Node and WebKit runs in the same thread: Function calls are made straightforward; objects are in the same heap and can just reference each other;
+            Easy to package and distribute apps.
+            * Available on Linux, Mac OS X and Windows
+            <br><br>
+            本质上，node-webkit 就是一个 chrome 浏览器
+          </script>
+      </section>
+      <section>
+        <h2>演示</h2>
+        <aside class="notes">
+          点开 node-webkit github页面, 下载链接, 展示 node-webkitv0.10.5文件夹
+          在 Slides 文件夹中创建 mkdir nw-sample
+          type atom
+          创建 package.json
+          {
+          "name": "hello"
+          "main": "index.html"
+          }
+          创建 index.html
+          执行
+          ~/Dev/Node/node-webkit-v0.10.5-osx-x64/node-webkit.app/Contents/MacOS/node-webkit .
+          然后加入 window: {toolbar: false}
+          现在就像一个真正的本地 app 了
+        </aside>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## 浏览器的局限性
+            浏览器必须和本地隔离
+            所以一个浏览器甚至无法完成一些最简单的任务
+            例如，桌面程序经常要在启动时读取用户电脑里的一些文件，比如配置文件
+            <br><br>
+            **浏览器无法做到，目前不可能，将来也不可能**
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          # Node.js
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          # 什么是 Node.js
+            <br>
+            [Stackoverflow: What is Node.js?](http://stackoverflow.com/questions/1884724/what-is-node-js)
+            In a word:
+            ### Run Javascript locally
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## 一个Node.js写的简单服务器
+            <br>
+            ```javascript
+            var http = require('http');
+                http.createServer(function (req, res) {
+                res.writeHead(200, {'Content-Type': 'text/plain'});
+                res.end('Hello World\n');
+            }).listen(1337, '127.0.0.1');
+            ```
+
+            ##### 演示
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## Node.js with Node-webkit
+
+            node-webkit 里面可以无缝运行 node.js
+            这是 node-webkit 为什么能如此流行
+            node.js 突破了浏览器的诸多限制，让 app 真正“本地化”
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## Node.js in FBT
+            * 本地服务器(内部通信)
+            * 和中心服务器通信
+            * 本地数据库
+            * 文件上传/下载
+            * ...
+          </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          # Question?
+          </script>
+      </section>
+    </div>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [{
+          src: 'lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: 'plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: 'plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: 'plugin/highlight/highlight.js',
+          async: true,
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: 'plugin/zoom-js/zoom.js',
+          async: true,
+          condition: function() {
+            return !!document.body.classList;
+          }
+        },
+        {
+          src: 'plugin/notes/notes.js',
+          async: true,
+          condition: function() {
+            return !!document.body.classList;
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>

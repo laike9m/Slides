@@ -1,0 +1,136 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALL_COMPLETED	.\_base.py	/^ALL_COMPLETED = 'ALL_COMPLETED'$/;"	v
+BrokenProcessPool	.\process.py	/^class BrokenProcessPool(RuntimeError):$/;"	c
+CANCELLED	.\_base.py	/^CANCELLED = 'CANCELLED'$/;"	v
+CANCELLED_AND_NOTIFIED	.\_base.py	/^CANCELLED_AND_NOTIFIED = 'CANCELLED_AND_NOTIFIED'$/;"	v
+CancelledError	.\_base.py	/^class CancelledError(Error):$/;"	c
+DoneAndNotDoneFutures	.\_base.py	/^DoneAndNotDoneFutures = collections.namedtuple($/;"	v
+EXTRA_QUEUED_CALLS	.\process.py	/^EXTRA_QUEUED_CALLS = 1$/;"	v
+Error	.\_base.py	/^class Error(Exception):$/;"	c
+Executor	.\_base.py	/^class Executor(object):$/;"	c
+FINISHED	.\_base.py	/^FINISHED = 'FINISHED'$/;"	v
+FIRST_COMPLETED	.\__init__.py	/^from concurrent.futures._base import (FIRST_COMPLETED,$/;"	i
+FIRST_COMPLETED	.\_base.py	/^FIRST_COMPLETED = 'FIRST_COMPLETED'$/;"	v
+FIRST_EXCEPTION	.\_base.py	/^FIRST_EXCEPTION = 'FIRST_EXCEPTION'$/;"	v
+Full	.\process.py	/^from queue import Full$/;"	i
+Future	.\_base.py	/^class Future(object):$/;"	c
+LOGGER	.\_base.py	/^LOGGER = logging.getLogger("concurrent.futures")$/;"	v
+PENDING	.\_base.py	/^PENDING = 'PENDING'$/;"	v
+ProcessPoolExecutor	.\__init__.py	/^from concurrent.futures.process import ProcessPoolExecutor$/;"	i
+ProcessPoolExecutor	.\process.py	/^class ProcessPoolExecutor(_base.Executor):$/;"	c
+RUNNING	.\_base.py	/^RUNNING = 'RUNNING'$/;"	v
+SimpleQueue	.\process.py	/^from multiprocessing import SimpleQueue$/;"	i
+ThreadPoolExecutor	.\__init__.py	/^from concurrent.futures.thread import ThreadPoolExecutor$/;"	i
+ThreadPoolExecutor	.\thread.py	/^class ThreadPoolExecutor(_base.Executor):$/;"	c
+TimeoutError	.\_base.py	/^class TimeoutError(Error):$/;"	c
+_AS_COMPLETED	.\_base.py	/^_AS_COMPLETED = '_AS_COMPLETED'$/;"	v
+_AcquireFutures	.\_base.py	/^class _AcquireFutures(object):$/;"	c
+_AllCompletedWaiter	.\_base.py	/^class _AllCompletedWaiter(_Waiter):$/;"	c
+_AsCompletedWaiter	.\_base.py	/^class _AsCompletedWaiter(_Waiter):$/;"	c
+_CallItem	.\process.py	/^class _CallItem(object):$/;"	c
+_FUTURE_STATES	.\_base.py	/^_FUTURE_STATES = [$/;"	v
+_FirstCompletedWaiter	.\_base.py	/^class _FirstCompletedWaiter(_Waiter):$/;"	c
+_ResultItem	.\process.py	/^class _ResultItem(object):$/;"	c
+_STATE_TO_DESCRIPTION_MAP	.\_base.py	/^_STATE_TO_DESCRIPTION_MAP = {$/;"	v
+_Waiter	.\_base.py	/^class _Waiter(object):$/;"	c
+_WorkItem	.\process.py	/^class _WorkItem(object):$/;"	c
+_WorkItem	.\thread.py	/^class _WorkItem(object):$/;"	c
+__author__	.\__init__.py	/^__author__ = 'Brian Quinlan (brian@sweetapp.com)'$/;"	v
+__author__	.\_base.py	/^__author__ = 'Brian Quinlan (brian@sweetapp.com)'$/;"	v
+__author__	.\process.py	/^__author__ = 'Brian Quinlan (brian@sweetapp.com)'$/;"	v
+__author__	.\thread.py	/^__author__ = 'Brian Quinlan (brian@sweetapp.com)'$/;"	v
+__enter__	.\_base.py	/^    def __enter__(self):$/;"	m	class:Executor	file:
+__enter__	.\_base.py	/^    def __enter__(self):$/;"	m	class:_AcquireFutures	file:
+__exit__	.\_base.py	/^    def __exit__(self, *args):$/;"	m	class:_AcquireFutures	file:
+__exit__	.\_base.py	/^    def __exit__(self, exc_type, exc_val, exc_tb):$/;"	m	class:Executor	file:
+__get_result	.\_base.py	/^    def __get_result(self):$/;"	m	class:Future	file:
+__init__	.\_base.py	/^    def __init__(self):$/;"	m	class:Future
+__init__	.\_base.py	/^    def __init__(self):$/;"	m	class:_AsCompletedWaiter
+__init__	.\_base.py	/^    def __init__(self):$/;"	m	class:_Waiter
+__init__	.\_base.py	/^    def __init__(self, futures):$/;"	m	class:_AcquireFutures
+__init__	.\_base.py	/^    def __init__(self, num_pending_calls, stop_on_exception):$/;"	m	class:_AllCompletedWaiter
+__init__	.\process.py	/^    def __init__(self, future, fn, args, kwargs):$/;"	m	class:_WorkItem
+__init__	.\process.py	/^    def __init__(self, max_workers=None):$/;"	m	class:ProcessPoolExecutor
+__init__	.\process.py	/^    def __init__(self, work_id, exception=None, result=None):$/;"	m	class:_ResultItem
+__init__	.\process.py	/^    def __init__(self, work_id, fn, args, kwargs):$/;"	m	class:_CallItem
+__init__	.\thread.py	/^    def __init__(self, future, fn, args, kwargs):$/;"	m	class:_WorkItem
+__init__	.\thread.py	/^    def __init__(self, max_workers):$/;"	m	class:ThreadPoolExecutor
+__repr__	.\_base.py	/^    def __repr__(self):$/;"	m	class:Future	file:
+_add_call_item_to_queue	.\process.py	/^def _add_call_item_to_queue(pending_work_items,$/;"	f
+_adjust_process_count	.\process.py	/^    def _adjust_process_count(self):$/;"	m	class:ProcessPoolExecutor
+_adjust_thread_count	.\thread.py	/^    def _adjust_thread_count(self):$/;"	m	class:ThreadPoolExecutor
+_base	.\process.py	/^from concurrent.futures import _base$/;"	i
+_base	.\thread.py	/^from concurrent.futures import _base$/;"	i
+_check_system_limits	.\process.py	/^def _check_system_limits():$/;"	f
+_create_and_install_waiters	.\_base.py	/^def _create_and_install_waiters(fs, return_when):$/;"	f
+_decrement_pending_calls	.\_base.py	/^    def _decrement_pending_calls(self):$/;"	m	class:_AllCompletedWaiter
+_invoke_callbacks	.\_base.py	/^    def _invoke_callbacks(self):$/;"	m	class:Future
+_process_worker	.\process.py	/^def _process_worker(call_queue, result_queue):$/;"	f
+_python_exit	.\process.py	/^def _python_exit():$/;"	f
+_python_exit	.\thread.py	/^def _python_exit():$/;"	f
+_queue_management_worker	.\process.py	/^def _queue_management_worker(executor_reference,$/;"	f
+_shutdown	.\process.py	/^_shutdown = False$/;"	v
+_shutdown	.\thread.py	/^_shutdown = False$/;"	v
+_start_queue_management_thread	.\process.py	/^    def _start_queue_management_thread(self):$/;"	m	class:ProcessPoolExecutor
+_system_limited	.\process.py	/^_system_limited = None$/;"	v
+_system_limits_checked	.\process.py	/^_system_limits_checked = False$/;"	v
+_threads_queues	.\process.py	/^_threads_queues = weakref.WeakKeyDictionary()$/;"	v
+_threads_queues	.\thread.py	/^_threads_queues = weakref.WeakKeyDictionary()$/;"	v
+_worker	.\thread.py	/^def _worker(executor_reference, work_queue):$/;"	f
+add_cancelled	.\_base.py	/^    def add_cancelled(self, future):$/;"	m	class:_AllCompletedWaiter
+add_cancelled	.\_base.py	/^    def add_cancelled(self, future):$/;"	m	class:_AsCompletedWaiter
+add_cancelled	.\_base.py	/^    def add_cancelled(self, future):$/;"	m	class:_FirstCompletedWaiter
+add_cancelled	.\_base.py	/^    def add_cancelled(self, future):$/;"	m	class:_Waiter
+add_done_callback	.\_base.py	/^    def add_done_callback(self, fn):$/;"	m	class:Future
+add_exception	.\_base.py	/^    def add_exception(self, future):$/;"	m	class:_AllCompletedWaiter
+add_exception	.\_base.py	/^    def add_exception(self, future):$/;"	m	class:_AsCompletedWaiter
+add_exception	.\_base.py	/^    def add_exception(self, future):$/;"	m	class:_FirstCompletedWaiter
+add_exception	.\_base.py	/^    def add_exception(self, future):$/;"	m	class:_Waiter
+add_result	.\_base.py	/^    def add_result(self, future):$/;"	m	class:_AllCompletedWaiter
+add_result	.\_base.py	/^    def add_result(self, future):$/;"	m	class:_AsCompletedWaiter
+add_result	.\_base.py	/^    def add_result(self, future):$/;"	m	class:_FirstCompletedWaiter
+add_result	.\_base.py	/^    def add_result(self, future):$/;"	m	class:_Waiter
+as_completed	.\_base.py	/^def as_completed(fs, timeout=None):$/;"	f
+atexit	.\process.py	/^import atexit$/;"	i
+atexit	.\thread.py	/^import atexit$/;"	i
+cancel	.\_base.py	/^    def cancel(self):$/;"	m	class:Future
+cancelled	.\_base.py	/^    def cancelled(self):$/;"	m	class:Future
+collections	.\_base.py	/^import collections$/;"	i
+done	.\_base.py	/^    def done(self):$/;"	m	class:Future
+exception	.\_base.py	/^    def exception(self, timeout=None):$/;"	m	class:Future
+logging	.\_base.py	/^import logging$/;"	i
+map	.\_base.py	/^    def map(self, fn, *iterables, timeout=None):$/;"	m	class:Executor
+multiprocessing	.\process.py	/^import multiprocessing$/;"	i
+os	.\process.py	/^import os$/;"	i
+queue	.\process.py	/^import queue$/;"	i
+queue	.\thread.py	/^import queue$/;"	i
+result	.\_base.py	/^    def result(self, timeout=None):$/;"	m	class:Future
+result_iterator	.\_base.py	/^        def result_iterator():$/;"	f	function:Executor.map
+run	.\thread.py	/^    def run(self):$/;"	m	class:_WorkItem
+running	.\_base.py	/^    def running(self):$/;"	m	class:Future
+set_exception	.\_base.py	/^    def set_exception(self, exception):$/;"	m	class:Future
+set_result	.\_base.py	/^    def set_result(self, result):$/;"	m	class:Future
+set_running_or_notify_cancel	.\_base.py	/^    def set_running_or_notify_cancel(self):$/;"	m	class:Future
+shutdown	.\_base.py	/^    def shutdown(self, wait=True):$/;"	m	class:Executor
+shutdown	.\process.py	/^    def shutdown(self, wait=True):$/;"	m	class:ProcessPoolExecutor
+shutdown	.\thread.py	/^    def shutdown(self, wait=True):$/;"	m	class:ThreadPoolExecutor
+shutdown_worker	.\process.py	/^    def shutdown_worker():$/;"	f	function:_queue_management_worker
+shutting_down	.\process.py	/^    def shutting_down():$/;"	f	function:_queue_management_worker
+submit	.\_base.py	/^    def submit(self, fn, *args, **kwargs):$/;"	m	class:Executor
+submit	.\process.py	/^    def submit(self, fn, *args, **kwargs):$/;"	m	class:ProcessPoolExecutor
+submit	.\thread.py	/^    def submit(self, fn, *args, **kwargs):$/;"	m	class:ThreadPoolExecutor
+threading	.\_base.py	/^import threading$/;"	i
+threading	.\process.py	/^import threading$/;"	i
+threading	.\thread.py	/^import threading$/;"	i
+time	.\_base.py	/^import time$/;"	i
+wait	.\_base.py	/^def wait(fs, timeout=None, return_when=ALL_COMPLETED):$/;"	f
+wait	.\process.py	/^from multiprocessing.connection import wait$/;"	i
+weakref	.\process.py	/^import weakref$/;"	i
+weakref	.\thread.py	/^import weakref$/;"	i
+weakref_cb	.\process.py	/^        def weakref_cb(_, q=self._result_queue):$/;"	f	function:ProcessPoolExecutor._start_queue_management_thread
+weakref_cb	.\thread.py	/^        def weakref_cb(_, q=self._work_queue):$/;"	f	function:ThreadPoolExecutor._adjust_thread_count
