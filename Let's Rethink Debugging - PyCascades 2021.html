@@ -1,0 +1,265 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>New Ideas on Python debugging  - @演说.io</title>
+
+    <meta name="keywords" content="演说，yanshuo, yanshuo.io, 演说.io, 空中演说, 展示文稿, HTML 展示文稿, Web 展示文稿" />
+  	  <meta name="description" content="创作真正跨平台的 HTML5 展示文稿，让你的分享到达世界的任何一个角落" />
+
+  		<meta name="apple-mobile-web-app-capable" content="yes">
+  		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  		<!-- Reveal base style -->
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/css/reveal.min.css">
+
+  		<!-- Yanshuo.io seed style -->
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/atcss/at-block.min.css">
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/atcss/at-hljs-theme-bundler.min.css">
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/atcss/at-reveal-default-theme.min.css">
+
+  		<!-- Source Sans Web Fonts -->
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/lib/font/source-sans-pro/source-sans-pro.css">
+
+      <!-- Printing and PDF exports -->
+      <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'https://yanshuo.io/assets/player//css/print/pdf.css' : '';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      </script>
+
+      <!--[if lt IE 9]>
+  		<script src="lib/js/html5shiv.js"></script>
+  		<![endif]-->
+
+  		<!-- style for "critical path" -->
+  		<style>
+  	  </style>
+  </head>
+  <body>
+    <!-- TODO: a lightweighted loading -->
+
+    <!-- main slides -->
+    <div id="YS" class="at-code-lh-18" style="width:100%;height:100%;" data-reveal-theme="qcon" data-highlight-theme="tomorrow" data-ys-title="New Ideas on Python debugging " data-ys-user="laike9m" data-ys-transition="none" data-ys-backgroundTransition="slide" data-ys-transitionSpeed="default" data-ys-fv="2"><style>
+
+  /*********************************************
+   * THEME: qcon
+   *********************************************/
+
+  /*********************************************
+   * Yanshuo Inject
+   *********************************************/
+
+   .hljs{
+     
+   }
+
+  /*********************************************
+   * GLOBAL STYLES
+   *********************************************/
+
+  body, .reveal, .reveal-preview {
+  	background-color: #fff;
+  }
+
+  .reveal, .reveal-preview  {
+    
+    color: #333;
+  }
+
+  ::selection {
+  	background: rgb(87, 167, 224);
+  }
+
+  /*********************************************
+   * HEADERS
+   *********************************************/
+
+  .reveal h1, .reveal-preview h1,
+  .reveal h2, .reveal-preview h2,
+  .reveal h3, .reveal-preview h3,
+  .reveal h4, .reveal-preview h4,
+  .reveal h5, .reveal-preview h5,
+  .reveal h6, .reveal-preview h6 {
+    
+  	color: #246baf;
+  }
+
+
+  /*********************************************
+   * LINKS
+   *********************************************/
+
+  .reveal a, .reveal-preview a {
+  	color: #246baf;
+    text-decoration: underline;
+  }
+  	.reveal a:hover, .reveal-preview a:hover {
+  		color: #1d8045;
+  	}
+
+
+  /*********************************************
+   * NAVIGATION CONTROLS
+   *********************************************/
+
+  .reveal .controls .navigate-left,
+  .reveal .controls .navigate-left.enabled {
+  	border-right-color: #246baf;
+  }
+
+  .reveal .controls .navigate-right,
+  .reveal .controls .navigate-right.enabled {
+  	border-left-color: #246baf;
+  }
+
+  .reveal .controls .navigate-up,
+  .reveal .controls .navigate-up.enabled {
+  	border-bottom-color: #246baf;
+  }
+
+  .reveal .controls .navigate-down,
+  .reveal .controls .navigate-down.enabled {
+  	border-top-color: #246baf;
+  }
+
+  .reveal .controls .navigate-left.enabled:hover {
+  	border-right-color: #1d8045;
+  }
+
+  .reveal .controls .navigate-right.enabled:hover {
+  	border-left-color: #1d8045;
+  }
+
+  .reveal .controls .navigate-up.enabled:hover {
+  	border-bottom-color: #1d8045;
+  }
+
+  .reveal .controls .navigate-down.enabled:hover {
+  	border-top-color: #1d8045;
+  }
+
+  /*********************************************
+   * PROGRESS BAR
+   *********************************************/
+
+  .reveal .progress span {
+  	background: #246baf;
+
+</style><div class="reveal"><div class="slides"><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:80.04399701715138px;top:184.14019388516033px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374247" class="at-block-content"><h1>Let's Rethink Debugging</h1></article></div><div style="left:76.91200596569725px;top:481.13944817300523px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374248" class="at-block-content"><h2><span style="color:#A4DD00">laike9m</span></h2></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374247" class="at-block-content"><h2>About me</h2></article></div><div style="left:82.13199105145414px;top:290.9321401938852px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374248" class="at-block-content"><ul><li>Work&nbsp;for Google</li><li>Been using&nbsp;Python since 2012</li><li><a href="http://github.com/laike9m">github.com/laike9m</a></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374247" class="at-block-content"><h2>Content of This Talk</h2></article></div><div style="left:82.13199105145414px;top:290.9321401938852px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374248" class="at-block-content"><ul><li><p>What debugging is really about</p></li><li>The history of debugging</li><li>Rethink debugging: two pain points</li><li>A novel approach</li><li>Where do we go from here</li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:97.79194630872483px;top:168.78448918717373px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374248" class="at-block-content"><ul><li><p><strong><span style="font-size:48px">What debugging is really about</span></strong></p></li><li><span style="color:#B3B3B3"><span style="font-size:48px">The history of debugging</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">Rethink debugging: two pain points</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">A novel approach</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">Where do we go from here</span></span></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:80.08799403430277px;top:69.72408650260999px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374247" class="at-block-content"><h2>Typical Errors</h2></article></div><div style="left:79px;top:231.42431021625652px;width:834.4519015659955px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1567395374248" class="at-block-content"><ol><li>Failed to compile&nbsp;<span style="color:#999999">(e.g. Syntax Error)</span><br>&nbsp;</li><li>Exit abnormally <span style="color:#999999">(e.g. Unhandled Exception)</span><br>&nbsp;</li><li>Program can run, but gives wrong results<br>&nbsp;</li><li>Result is correct, but program consumes more resources than expected <span style="color:#999999">(e.g. Memory&nbsp;leak)</span></li></ol></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:74.82401193139448px;top:73.90007457121551px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374247" class="at-block-content"><h2>Typical Errors</h2></article></div><div style="left:79px;top:231.42431021625652px;width:834.4519015659955px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1568014561320" class="at-block-content"><ol><li><span style="color:#B3B3B3">Error generating bytecode (e.g. Syntax Error)</span><br>&nbsp;</li><li><span style="color:#B3B3B3">Exit abnormally (e.g. Unhandled Exception)</span><br>&nbsp;</li><li><strong>Program can run, but gives wrong results</strong><br>&nbsp;</li><li><span style="color:#B3B3B3">Result is correct, but program consumes more resources than expected (e.g. Memory&nbsp;leak)</span></li></ol></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:74.82401193139448px;top:145.8165548098434px;width:834.4519015659955px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1568014561320" class="at-block-content"><p><span style="font-size:48px">In this context, debugging is about</span></p><p>&nbsp;</p><p><span style="font-size:72px"><strong>Figuring out</strong></span></p><p><strong><span style="font-size:72px"><span style="color:#FE9200">why</span>&nbsp;our program</span></strong></p><p><strong><span style="font-size:72px">gives&nbsp;the wrong result</span></strong></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:97.79194630872483px;top:168.78448918717373px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374248" class="at-block-content"><ul><li><p><span style="color:#B3B3B3"><span style="font-size:48px">What debugging is really about</span></span></p></li><li><strong><span style="font-size:48px">The history of debugging</span></strong></li><li><span style="color:#B3B3B3"><span style="font-size:48px">Two pain points</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">A novel approach</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">Where do we go from here</span></span></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:89.72796934865902px;top:17.241379310344822px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h1>EDSAC</h1></article></div><div style="width:655.3256704980843px;height:460.7758620689656px;left:161.53256704980842px;top:138.79310344827584px;" class="at-block at-block--pure"><article data-block-id="1609227643680" class="at-block-content"><img src=https://upload.wikimedia.org/wikipedia/commons/2/22/EDSAC_%2819%29.jpg /></article></div><div style="left:75.93486590038314px;top:604.6743295019157px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609227676163" class="at-block-content"><p>EDSAC I in June 1948</p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:74.40229885057471px;top:49.42528735632184px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h2>Debugging in EDSAC</h2></article></div><div style="left:59.07662835249042px;top:225.0574712643678px;width:485.823754789272px;height:auto;" class="at-block at-block--pure"><article data-block-id="1609126143555" class="at-block-content"><p style="text-align:left">... 'single-stepping' through the program and observing the contents of the memory&nbsp;and registers on the <strong>monitor tubes</strong>.</p><p style="text-align:right">- <em><a href="http://wrap.warwick.ac.uk/60849/">The Airy Tape : an early chapter in the history of debugging</a></em></p></article></div><div style="width:328.0919540229885px;height:212.7471264367816px;left:574.9578544061303px;top:190.13026819923368px;" class="at-block at-block--pure"><article data-block-id="1609229005879" class="at-block-content"><img src=https://upload.wikimedia.org/wikipedia/commons/5/5b/EDSAC_%285%29.jpg /></article></div><div style="width:293.63984674329504px;height:220.22988505747125px;left:586.0536398467433px;top:423.40996168582376px;" class="at-block at-block--pure"><article data-block-id="1609230241991" class="at-block-content"><img src=https://i.loli.net/2020/12/29/Kp1ofJhlYPRrBU8.png /></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h2>Debugging in EDSAC</h2></article></div><div style="left:59.07662835249042px;top:225.0574712643678px;width:829.1187739463601px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1609126143555" class="at-block-content"><h3 style="text-align:left">"Software Aids"</h3><ul><li style="text-align:left"><strong>Post-morterm dump routine</strong><br>Print out the contents of memory when a program has terminated abnormally or had been aborted.</li><li style="text-align:left"><strong>Interpretive trace routine</strong><br>For each instruction, print out diagnostic information, e.g. order code<br>&nbsp;</li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h2>Debugging in the 80s</h2></article></div><div style="left:59.07662835249042px;top:225.0574712643678px;width:829.1187739463601px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1609126143555" class="at-block-content"><ul><li style="text-align:left"><span style="font-size:36px"><a href="https://retrocomputing.stackexchange.com/questions/8487/what-was-the-first-mainstream-advanced-debugger">What was the first mainstream advanced debugger?</a></span></li><li style="text-align:left"><span style="font-size:36px">Modern debuggers appear in the 80s</span></li><li style="text-align:left"><strong>GDB</strong><br>Initial release, 1986</li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:74.82401193139448px;top:73.90007457121551px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374247" class="at-block-content"><h2>Debugging Methods</h2></article></div><div style="left:79px;top:231.42431021625652px;width:834.4519015659955px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1567395374248" class="at-block-content"><ul><li>print()</li><li>Logging</li><li>Debugger<ul><li>pdb(ipdb, pudb, etc)</li><li>PyCharm</li><li>VS Code</li></ul></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>print()</h1></article></div><div style="left:79px;top:220px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567405342601" class="at-block-content"><blockquote><p style="text-align:left">On the other hand, often the quickest way to debug a program is to <strong>add a few print statements</strong> to the source: the fast edit-test-debug cycle makes this simple approach very effective.&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-- <strong>Guido van Rossum</strong><br><span style="font-size:20px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://python.org/doc/essays/blurb.html">http://python.org/doc/essays/blurb.html</a></span></p></blockquote></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>print()</h1></article></div><div style="left:79px;top:220px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567405342601" class="at-block-content"><blockquote><p style="text-align:left">I don't like debuggers. Never have, probably never will.</p><p style="text-align:left">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- <strong>Linus Torvalds</strong><br><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size:18px"><a href="https://lwn.net/2000/0914/a/lt-debugger.php3">https://lwn.net/2000/0914/a/lt-debugger.php3</a></span></p></blockquote></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>Why print()</h1></article></div><div style="left:77.95600298284862px;top:277.3601789709172px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993015" class="at-block-content"><ul><li>Use out-of-the box<br>&nbsp;</li><li>No redundant information<br>&nbsp;</li><li>Normally won't change program's behavior<br>&nbsp;</li><li><em>"Has this line of code ever run?"</em></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>Why not print()</h1></article></div><div style="left:77.95600298284862px;top:277.3601789709172px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993015" class="at-block-content"><ul><li>Requires decent familarity with code<br>&nbsp;</li><li>Requires code&nbsp;modification<br>&nbsp;</li><li>Lacks context<br>&nbsp;</li><li>Hard to manage output</li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>Logging</h1></article></div><div style="left:77.95600298284862px;top:277.3601789709172px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993015" class="at-block-content"></article></div><div style="left:79px;top:285.39149888143174px;width:800px;height:324.60850111856826px;" class="at-block at-block--pure"><article data-block-id="1567408205333" class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-python"><span class="line width-1" start="1"><span class="hljs-keyword">import</span> logging</span>
+<span class="line width-1" start="2"></span>
+<span class="line width-1" start="3">logging.debug(<span class="hljs-string">'This is a debug message'</span>)</span>
+<span class="line width-1" start="4">logging.info(<span class="hljs-string">'This is an info message'</span>)</span>
+<span class="line width-1" start="5">logging.warning(<span class="hljs-string">'This is a warning message'</span>)</span>
+<span class="line width-1" start="6">logging.error(<span class="hljs-string">'This is an error message'</span>)</span>
+<span class="line width-1" start="7">logging.critical(<span class="hljs-string">'This is a critical message'</span>)</span>
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>Why Logging</h1></article></div><div style="left:94.65995525727067px;top:266.5995525727069px;width:800px;height:324.60850111856826px;" class="at-block at-block--pure"><article data-block-id="1567408205333" class="at-block-content MarkdownBlock"><ul>
+<li><p>Configurable</p>
+</li>
+<li><p>Easy to manage output (e.g. Sentry)</p>
+</li>
+<li><p>Richer context (filename, lineno, etc)</p>
+</li>
+</ul>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:75.86800894854586px;top:22.74422073079791px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>Why not Logging</h1></article></div><div style="left:88.39597315436238px;top:139.23191648023857px;width:800px;height:518.7919463087248px;" class="at-block at-block--pure"><article data-block-id="1567408205333" class="at-block-content MarkdownBlock"><ul>
+<li><p>Config is cumbersome</p>
+<pre class="hljs"><code class="lang-python"><span class="line width-1" start="1">logger = logging.getLogger()</span>
+<span class="line width-1" start="2">handler = logging.StreamHandler()</span>
+<span class="line width-1" start="3">formatter = logging.Formatter(</span>
+<span class="line width-1" start="4">      <span class="hljs-string">'%(asctime)s %(name)-12s %(levelname)-8s %(message)s'</span>)</span>
+<span class="line width-1" start="5">handler.setFormatter(formatter)</span>
+<span class="line width-1" start="6">logger.addHandler(handler)</span>
+<span class="line width-1" start="7">logger.setLevel(logging.DEBUG)</span>
+</code></pre>
+</li>
+<li><p>Not always available out-of-the-box</p>
+</li>
+<li>Still, context is not enough</li>
+</ul>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:74.82401193139448px;top:73.90007457121551px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567395374247" class="at-block-content"><h1>Debugging Methods</h1></article></div><div style="left:79px;top:231.42431021625652px;width:834.4519015659955px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1567395374248" class="at-block-content"><ul><li><span style="color:#B3B3B3">print()</span></li><li><span style="color:#B3B3B3">Logging</span></li><li><strong>Debugger</strong><ul><li><strong>pdb(ipdb, pudb, etc)</strong></li><li><strong>PyCharm</strong></li><li><strong>VS Code</strong></li></ul></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>Why Debugger</h1></article></div><div style="left:79px;top:260.33557046979865px;width:800px;height:349.66442953020135px;" class="at-block at-block--pure"><article data-block-id="1568016621461" class="at-block-content MarkdownBlock"><ul>
+<li><p>Powerful, with more features</p>
+</li>
+<li><p>Doesn&#39;t require familarity with code</p>
+</li>
+<li><p>Helps you find root cause more easily</p>
+</li>
+</ul>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1>Why not Debugger</h1></article></div><div style="left:79px;top:235.27964205816556px;width:800px;height:374.72035794183444px;" class="at-block at-block--pure"><article data-block-id="1568016705246" class="at-block-content MarkdownBlock"><ul>
+<li><p>Depends on certain Lib/Editor/IDE</p>
+</li>
+<li><p>Some learning curve</p>
+</li>
+<li><p>No way to persist information</p>
+</li>
+<li><p>Performance issue</p>
+</li>
+</ul>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:97.79194630872483px;top:168.78448918717373px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609311610761" class="at-block-content"><ul><li><p><span style="color:#B3B3B3"><span style="font-size:48px">What debugging is really about</span></span></p></li><li><span style="color:#B3B3B3"><span style="font-size:48px">The history of debugging</span></span></li><li><strong><span style="font-size:48px">Rethink debugging: two pain points</span></strong></li><li><span style="color:#B3B3B3"><span style="font-size:48px">A novel approach</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">Where do we go from here</span></span></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h1>Pain point one</h1></article></div><div style="left:77.95600298284862px;top:278.4638329604773px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609311723167" class="at-block-content"><p><span style="font-size:48px"><strong>No tool that is as easy-to-use as&nbsp;<span style="color:#FCC400">print</span>, </strong></span></p><p><span style="font-size:48px"><strong>yet as powerful as a <span style="color:#0062B1">debugger</span></strong></span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="width:822.192393736018px;height:357.79242711425286px;left:69.94780014914242px;top:171.85665107691167px;" class="at-block at-block--pure"><article data-block-id="1609311874437" class="at-block-content"><img src=https://i.loli.net/2020/12/30/CxAnRirv9TjcQG5.png /></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:80.53256704980843px;top:60.15325670498084px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h1>Pain point two</h1></article></div><div style="left:74.4022988505747px;top:443.8062176965209px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609311723167" class="at-block-content"><p><span style="font-size:48px"><strong>Existing tools only give <span style="color:#0062B1">clues</span>, </strong></span></p><p><span style="font-size:48px"><strong>without telling the<span style="color:#0062B1">&nbsp;</span></strong><span style="color:#FE9200"><strong>why</strong></span></span></p></article></div><div style="left:32.95613155390985px;top:240.30008485690044px;width:878.1609195402299px;height:auto;" class="at-block at-block--pure"><article data-block-id="1609791650192" class="at-block-content"><p><span style="font-size:48px"><strong>Recap</strong>: debugging is about figuring out<span style="color:#FE9200"><strong>&nbsp;why</strong></span>&nbsp;our program gives&nbsp;the wrong result</span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h1>An example</h1></article></div><div style="left:79px;top:239.45563012677107px;width:800px;height:78.2252050708426px;" class="at-block at-block--pure"><article data-block-id="1609318572470" class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-python"><span class="line width-1" start="1">c = a + b  <span class="hljs-comment"># c should be "foo", but instead is "bar"</span></span>
+</code></pre>
+</article></div><div style="left:91.52796420581655px;top:327.5316927665921px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609318674072" class="at-block-content"><ol><li>Set a break point at this line.</li><li>Run the program, inspect the value of&nbsp;a&nbsp;and&nbsp;b.</li><li>Figure out whether the error lies in&nbsp;a&nbsp;or&nbsp;b.</li><li>Set another break point, repeat&nbsp;🔁</li></ol></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h1>An example</h1></article></div><div style="left:79px;top:239.45563012677107px;width:800px;height:78.2252050708426px;" class="at-block at-block--pure"><article data-block-id="1609318572470" class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-python"><span class="line width-1" start="1">c = a + b  <span class="hljs-comment"># c should be "foo", but instead is "bar"</span></span>
+</code></pre>
+</article></div><div style="left:91.52796420581655px;top:327.5316927665921px;width:842.8038777032066px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1609318674072" class="at-block-content"><ol><li><p>Set a break point at the program entry point</p></li><li><p>Step through and program</p></li><li><p>Util you reach c = a + b</p></li></ol></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="width:391.0044742729307px;height:343.971620096474px;left:299.6357196122297px;top:138.276702051177px;" class="at-block at-block--pure"><article data-block-id="1609319248282" class="at-block-content"><img src=https://i.loli.net/2020/12/30/WcSaJVp6GLjXgki.png /></article></div><div style="left:246.03952274422073px;top:50.87248322147651px;width:446.0850111856823px;height:auto00;" class="at-block at-block--pure"><article data-block-id="1609319287948" class="at-block-content"><p><strong>Monitor relevant variables</strong></p></article></div><div style="left:18.00820283370621px;top:279.0678598061148px;width:313.4973900074571px;height:auto0;" class="at-block at-block--pure"><article data-block-id="1609319316906" class="at-block-content"><p><strong>Compare with </strong></p><p><strong>expected values</strong></p></article></div><div style="left:100.04399701715147px;top:519.7912005965698px;width:770.7680835197614px;height:auto0000;" class="at-block at-block--pure"><article data-block-id="1609319394107" class="at-block-content"><p><strong>Use <span style="font-size:72px">our</span>&nbsp;<span style="font-size:72px">brain</span>&nbsp;to do all this</strong></p></article></div><div style="left:584.0186428038778px;top:186.31618195376586px;width:365.69724086502606px;height:auto00;" class="at-block at-block--pure"><article data-block-id="1609319432551" class="at-block-content"><p><strong>Memorize the results at every step</strong></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:78.93314304816272px;top:216.46686723752214px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609458241951" class="at-block-content"><p><span style="font-size:72px">Yet,&nbsp;we don’t even</span></p><p><span style="font-size:72px">think it is a&nbsp;problem</span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:97.79194630872483px;top:168.78448918717373px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609311610761" class="at-block-content"><ul><li><p><span style="color:#B3B3B3"><span style="font-size:48px">What debugging is really about</span></span></p></li><li><span style="color:#B3B3B3"><span style="font-size:48px">The history of debugging</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">Rethink debugging: two pain points</span></span></li><li><strong><span style="font-size:48px">A novel approach</span></strong></li><li><span style="color:#B3B3B3"><span style="font-size:48px">Where do we go from here</span></span></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h2>An Ideal Debugging Tool</h2></article></div><div style="left:74.82401193139448px;top:256.5398956002983px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609458640383" class="at-block-content"><ul><li><strong>Easy-to-use and provide rich information.</strong></li><li><strong>Tell you why a variable has a wrong value with no or minimal human intervention.</strong></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:70.64802386278896px;top:217.80014914243105px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><p><strong><span style="font-size:72px">Who has the information we need for debugging?</span></strong></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:70.64802386278896px;top:217.80014914243105px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609458962690" class="at-block-content"><p><span style="font-size:72px"><strong>the Python interpreter</strong></span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:76.91200596569725px;top:63.46010439970171px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h1>Python bytecode</h1></article></div><div style="left:90.48396718866518px;top:207.0917225950783px;width:800px;height:411.2602535421327px;" class="at-block at-block--pure"><article data-block-id="1609459547581" class="at-block-content MarkdownBlock"><pre class="hljs"><code><span class="line width-2" start="1">&gt;&gt;&gt; from dis import dis</span>
+<span class="line width-2" start="2"></span>
+<span class="line width-2" start="3">&gt;&gt;&gt; dis(<span class="hljs-string">"c = a + b"</span>)</span>
+<span class="line width-2" start="4">  <span class="hljs-number">1</span>           <span class="hljs-number">0</span> LOAD_NAME                <span class="hljs-number">0</span> (a)</span>
+<span class="line width-2" start="5">              <span class="hljs-number">2</span> LOAD_NAME                <span class="hljs-number">1</span> (b)</span>
+<span class="line width-2" start="6">              <span class="hljs-number">4</span> BINARY_ADD</span>
+<span class="line width-2" start="7">              <span class="hljs-number">6</span> STORE_NAME               <span class="hljs-number">2</span> (c)</span>
+<span class="line width-2" start="8">              <span class="hljs-number">8</span> LOAD_CONST               <span class="hljs-number">0</span> (None)</span>
+<span class="line width-2" start="9">             <span class="hljs-number">10</span> RETURN_VALUE</span>
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:76.91200596569725px;top:63.46010439970171px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h2>CPython Virtual Machine</h2></article></div><div style="width:641.3564504101416px;height:465.5653832764483px;left:159.84377330350486px;top:184.8745868950655px;" class="at-block at-block--pure"><article data-block-id="1609462547759" class="at-block-content"><img src=https://i.loli.net/2021/01/01/JX7uT6N9ydpoS5e.png /></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:76.91200596569725px;top:34.22818791946308px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h2>Pull information</h2><h2>out of the interpreter</h2></article></div><div style="width:697.9567486950037px;height:421.81164535375603px;left:132.58762117822516px;top:236.0253247093308px;" class="at-block at-block--pure"><article data-block-id="1609470496489" class="at-block-content"><img src=https://i.loli.net/2021/01/01/vOsd65eBgJyqmhx.png /></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:80.04399701715138px;top:44.66815809097688px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h2>Let's use it for debugging</h2></article></div><div style="left:99.87994034302758px;top:151.75988068605517px;width:800px;height:78.2252050708426px;" class="at-block at-block--pure"><article data-block-id="1609470719085" class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-python"><span class="line width-1" start="1">c = a + b  <span class="hljs-comment"># c should be "foo", but instead is "bar"</span></span>
+</code></pre>
+</article></div><div style="width:641.2260536398467px;height:445.07926267611435px;left:163.98467432950193px;top:231.96165715084462px;" class="at-block at-block--pure"><article data-block-id="1609794677973" class="at-block-content"><img src=https://i.loli.net/2021/01/05/kAhO1LFPUSIrxgN.png /></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="width:501.77292769428396px;height:487.85626714190016px;left:217.10757045561712px;top:145.88129043822366px;" class="at-block at-block--pure"><article data-block-id="1609473529099" class="at-block-content"><img src=https://i.loli.net/2021/01/01/rejidpna5Oco8BZ.png /></article></div><div style="left:70.64802386278897px;top:54.00447427293065px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609475583744" class="at-block-content"><p style="text-align: left;"><span style="font-size:48px">It is possible to backtrace errors&nbsp;<span style="color:#FCC400">reliably</span></span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:76.91200596569725px;top:189.61222967934378px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><p><span style="font-size:48px">What if there's a tool that can automatically generate this&nbsp;graph?</span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:270px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><p><span style="font-size:72px">Demo: Cyberbrain</span></p><p>&nbsp;</p><p><a href="https://github.com/laike9m/Cyberbrain"><span style="font-size:26px">https://github.com/laike9m/Cyberbrain</span></a></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><p style="text-align:left"><span style="font-size:48px">Cyerbrain solves the two pain points:</span></p><p style="text-align:left">&nbsp;</p><ul><li><strong>It's easy-to-use and provide rich information.</strong><br>&nbsp;</li><li><strong>It tells you why a variable has a wrong value with little human intervention.</strong></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:97.79194630872483px;top:168.78448918717373px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609311610761" class="at-block-content"><ul><li><p><span style="color:#B3B3B3"><span style="font-size:48px">What debugging is really about</span></span></p></li><li><span style="color:#B3B3B3"><span style="font-size:48px">The history of debugging</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">Rethink debugging: two pain points</span></span></li><li><span style="color:#B3B3B3"><span style="font-size:48px">A novel approach</span></span></li><li><strong><span style="font-size:48px">Where do we go from here</span></strong></li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:77.95600298284862px;top:68.68008948545861px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h2>Existing tools are becoming calcified</h2></article></div><div style="width:454.4243102162565px;height:268.78027584727073px;left:26.24049217002236px;top:280.083631684422px;" class="at-block at-block--pure"><article data-block-id="1609476990517" class="at-block-content"><img src=https://i.loli.net/2021/01/01/LWBQYrpvX8lA7zC.png /></article></div><div style="width:405.63758389261744px;height:276.51804616265673px;left:504.2505592841163px;top:272.2802919645405px;" class="at-block at-block--pure"><article data-block-id="1609477093148" class="at-block-content"><img src=https://i.loli.net/2021/01/01/XSEGgH7kLqT81im.png /></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:270px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><p><span style="font-size:48px">DAP (&nbsp;<a target="_blank" href="https://microsoft.github.io/debug-adapter-protocol/">Debug Adapter Protocol</a>&nbsp;)</span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:75.86800894854586px;top:48.8441461595824px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h1>New Tools</h1></article></div><div style="left:85.26398210290827px;top:185.5480984340045px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609477205269" class="at-block-content"><ul><li><a target="_blank" href="https://github.com/cool-RR/PySnooper">PySnooper</a>,&nbsp;<a target="_blank" href="https://github.com/gruns/icecream">IceCream</a>,&nbsp;<a target="_blank" href="https://github.com/ionelmc/python-hunter">Hunter</a>,&nbsp;<a target="_blank" href="https://github.com/alonho/pytrace">pytrace</a>: lets you trace function calls and variables with no effort, automating the process of adding&nbsp;print().</li><li><a target="_blank" href="https://github.com/alexmojaki/birdseye">birdseye</a>,&nbsp;<a target="_blank" href="https://thonny.org/">Thonny</a>: graphical debuggers that can visualize the values of expressions.</li><li><a target="_blank" href="http://www.pythontutor.com/">Python Tutor</a>: web-based interactive program visualization, which also visualizes data structures.</li><li>Cyberbrain.</li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:83.59770114942529px;top:35.63218390804597px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567397993014" class="at-block-content"><h1><span style="font-size:72px">An Example:&nbsp;<span style="color:#68BC00"><strong>PySnooper</strong></span></span></h1></article></div><div style="left:57.53256704980842px;top:176.99616858237553px;width:396.9348659003831px;height:173.5902183136619px;" class="at-block at-block--pure"><article data-block-id="1567580028924" class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-python"><span class="line width-1" start="1"><span class="hljs-keyword">with</span> pysnooper.snoop():</span>
+<span class="line width-1" start="2">    lower = min(lst)</span>
+<span class="line width-1" start="3">    upper = max(lst)</span>
+<span class="line width-1" start="4">    mid = (lower + upper) / <span class="hljs-number">2</span></span>
+</code></pre>
+</article></div><div style="left:49.15325670498085px;top:359.6704980842912px;width:891.9128802489136px;height:312.04832427186847px;" class="at-block at-block--pure"><article data-block-id="1567580040970" class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-bash"><span class="line width-1" start="1">New var:....... lst = [681, 267, 74, 832, 284, 678, ...]</span>
+<span class="line width-1" start="2">09:37:35.881721 line        10         lower = min(lst)</span>
+<span class="line width-1" start="3">New var:....... lower = 74</span>
+<span class="line width-1" start="4">09:37:35.882137 line        11         upper = max(lst)</span>
+<span class="line width-1" start="5">New var:....... upper = 832</span>
+<span class="line width-1" start="6">09:37:35.882304 line        12         mid = (lower + upper) / 2</span>
+<span class="line width-1" start="7">74 453.0 832</span>
+<span class="line width-1" start="8">New var:....... mid = 453.0</span>
+</code></pre>
+</article></div><div style="left:631.2744220730798px;top:27.904548844146234px;width:238.3296047725578px;height:auto;" class="at-block at-block--pure"><article data-block-id="1567661226962" class="at-block-content"><p><span style="font-size:14px"><a href="http://github.com/cool-RR/PySnooper"><span style="color:#666666">github.com/cool-RR/PySnooper</span></a></span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:110px;width:800px;height:248.6590038314176px;" class="at-block at-block--pure"><article data-block-id="1609477253899" class="at-block-content MarkdownBlock"><blockquote>
+<p>The tools we use have a profound (and devious!) influence on our thinking habits, and, therefore, on our thinking abilities.  </p>
+</blockquote>
+</article></div><div style="left:118.84674329501915px;top:360.9961685823755px;width:724.904214559387px;height:auto;" class="at-block at-block--pure"><article data-block-id="1609795791138" class="at-block-content"><p style="text-align:right">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- Edsger Dijkstra</p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:100px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609126143554" class="at-block-content"><h1>What can we do?</h1></article></div><div style="left:85.26398210290827px;top:274.2878448918717px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609477500799" class="at-block-content"><ul><li>Think of new ways to make debugging better</li><li>Create tools, or contribute to them</li><li>Spread this talk and the ideas</li><li>Create new programming languages that put debuggability as the core feature</li></ul></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:79px;top:220px;width:800px;" class="at-block at-block--pure"><article data-block-id="1609477530014" class="at-block-content"><p><span style="font-size:72px"><strong>keep an open mind</strong>.</span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="none"><div style="left:65.78678678678679px;top:225.55555555555554px;width:800px;" class="at-block at-block--pure"><article data-block-id="1567916196623" class="at-block-content"><h1>Thanks</h1><p>&nbsp;</p><p><span style="font-size:72px">Q &amp; A</span></p></article></div></section><style>.at-block{ position:absolute }</style></div></div></div>
+
+    <!-- dependencies -->
+		<script src="https://yanshuo.io/assets/player/lib/js/head.min.js"></script>
+		<script src="https://yanshuo.io/assets/player/js/reveal.min.js"></script>
+
+    <!-- init -->
+    <script>
+      Reveal.initialize({
+        controls: true,
+        history: true,
+        center: false,
+
+        transition:             'none',
+        backgroundTransition:   'slide',
+        transitionSpeed:        'default',
+
+        // no marked.js
+				// no markdown.js
+				// no highlight.js
+				dependencies: [
+					{ src: 'https://yanshuo.io/assets/player/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'https://yanshuo.io/assets/player/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'https://yanshuo.io/assets/player/plugin/notes/notes.js', async: true }
+				]
+      });
+    </script>
+  </body>
+</html>
